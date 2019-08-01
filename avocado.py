@@ -56,42 +56,36 @@ def load_avocado_data(avocado_path = AVOCADO_PATH):
     csv_path = os.path.join(avocado_path,"avocado.csv")
     return pd.read_csv(csv_path)
 
-
 avocado_dataframe = load_avocado_data()
 """
 # Carga de la data
 avocado_dataframe = pd.read_csv("avocado.csv") 
 
+#print(avocado_dataframe)
 # Visualizo los primeros 5 registros del dataframe
 head_avocado = avocado_dataframe.head()
 print(head_avocado)
-#rename, rename_axis ????
+
 
 # Descripcion de la data
 print(avocado_dataframe.info())
 
-# Nombro columna que aparece como Unnamed: 0 - Colimna sin encabezado
-#print(dir(avocado_dataframe)) # Listo Funciones, Metodos que puedo usar
+# Nombro columna que aparece como Unnamed: 0 - Columna sin encabezado
+# print(dir(avocado_dataframe)) # Listo Funciones, Metodos que puedo usar
 avocado_dataframe.rename(columns={'Unnamed: 0':'semana'}, inplace = True)
-# Listo nombres de columnas
-print(avocado_dataframe.columns)
 
+# Listo nombres de columnas
+print("Columnas: ", avocado_dataframe.columns)
 
 # Verifico si algunos campos son variables categoricas
 print(avocado_dataframe["type"].value_counts())
 print(avocado_dataframe["year"].value_counts())
 print(avocado_dataframe["region"].value_counts())
 #print(avocado_dataframe["semana"].value_counts())
-print(avocado_dataframe["semana"].sort_values(ascending = False))
-print(avocado_dataframe["semana"].unique())
-
+#print(avocado_dataframe["semana"].sort_values(ascending = False))
+#print(avocado_dataframe["semana"].unique())
 
 # Resumen de los atributos de datos numericos
 print(avocado_dataframe.describe())
-
-
-
-
-
 
 
